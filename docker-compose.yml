@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  postgres:
+    container_name: postgre-newTigerBox
+    image: postgres
+    environment:
+      POSTGRES_USER: newTigerBoxUser
+      POSTGRES_PASSWORD: newTigerBoxSpecialPassword
+      PGDATA: /data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-newTigerBox
+    ports:
+        - 5672:5672
+        - 15672:15672
+    environment:
+        - RABBITMQ_DEFAULT_USER=newTigerBoxUser
+        - RABBITMQ_DEFAULT_PASS=newTigerBoxSpecialPassword
+    healthcheck:
+        test: rabbitmq-diagnostics -q ping
+        interval: 5s
+        timeout: 5s
+        retries: 5

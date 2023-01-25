@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Platforms>AnyCPU;x64</Platforms>
+		<LangVersion>latest</LangVersion>
+		<AssemblyName>NewTigerBox.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>NewTigerBox.$(MSBuildProjectName.Replace(" ","_"))</RootNamespace>
+	</PropertyGroup>
+
+</Project>
